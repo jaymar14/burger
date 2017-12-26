@@ -1,0 +1,65 @@
+<div class="container">
+	<div class="jumbotron">
+		<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT7vSPycP6u1_giLsq9n-5mIyLnNIyawxuo3oL2ptAZ36jRkcwsog" width="auto" height="auto">
+		<h1>Eat Burgers!!!</h1>
+	</div>
+	
+
+	<div class="row">
+
+	<div class="col-md-4 col-md-offset-1">
+	 <div class="panel-panel default">
+	 	<h1>Ready to Eat Burger</h1>
+	 	<ul class="list-group">
+	 		{{#each burgers}}
+	 		 {{#unless this.devoured}}
+	 		 <li class="list-group-item">
+	 		  <div class="input-group">
+	 		  	<p class="lead">{{this.burger_name}}</p>
+	 		  	<span class="input-group-btn">
+
+	 		  		<form action="burgers/update/{{this.id}}?_method=PUT" method="POST">
+	 		  			<input type="hidden" name="devoured" value="true">
+	 		  			<button class="btn btn-default btn-lg" type="submit">Devour it!</button>
+	 		  		</form>
+	 		  	</span>
+	 		  </div>
+	 		 </li>
+	 		 {{/unless}}
+	 		{{/each}}
+	 	</ul>
+
+	 </div>
+	</div>
+
+	
+	<div class="row">
+		<div class="col-md-4 col-md-offset-2">
+			<h1>Devoured Burgers</h1>
+			<div class="panel panel-default">
+				<ul class="list-group">
+					{{#each burgers}}
+					 {{#if this.devoured}}
+					 <li class="list-group-item">
+					 	<p class="lead">{{this.burger_name}}</p>
+					 </li>
+					 {{/if}}
+					  {{/each}}
+				</ul>
+			</div>
+		</div>
+	</div>
+
+	<div class="col-md-10 col-md-offset-1">
+		<p class="lead">add burger & click submit</p>
+		
+		<form class="create-update-form" action="burgers/create" method="POST">
+		 <div class="form-group">
+		 	<textarea class="form-control input-lg" type="text" name="burger_name" row="3"></textarea>
+		 </div>
+		 <button class="btn btn-default btn-lg" type="submit">Submit</button>
+		</form>
+	</div>
+
+ </div>
+</div>

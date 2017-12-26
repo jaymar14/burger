@@ -1,0 +1,14 @@
+body{
+	background-color: grey;
+	text-align: center;
+}
+
+.jumbotron{
+	background-color: grey;
+	color: orange;
+}
+
+h1{
+	color: black;
+	font-size: 20px;
+}
